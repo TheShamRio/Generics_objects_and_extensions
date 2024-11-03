@@ -39,6 +39,27 @@ class Quiz : ProgressPrintable {
         println(progressText)
     }
 
+    fun printQuiz() {
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+    }
+
     override val progressText: String
         get() = "${answered} of ${total} answered"
     val question1 = Question<String>("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
@@ -52,5 +73,8 @@ class Quiz : ProgressPrintable {
 }
 
 fun main() {
-    Quiz().printProgressBar()
+    Quiz().apply {
+        printQuiz()
+    }
 }
+
