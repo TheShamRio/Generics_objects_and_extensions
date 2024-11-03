@@ -1,17 +1,3 @@
-package com.example.generics_objects_and_extensions
-
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.generics_objects_and_extensions.ui.theme.Generics_objects_and_extensionsTheme
 
 package com.example.generics_objects_and_extensions
 
@@ -28,23 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.generics_objects_and_extensions.ui.theme.Generics_objects_and_extensionsTheme
 
-class FillInTheBlankQuestion(
+
+class Question<T>(
     val questionText: String,
-    val answer: String,
-    val difficulty: String
+    val answer: T,
+    val difficulty: Difficulty
 )
 
-class TrueOrFalseQuestion(
-    val questionText: String,
-    val answer: Boolean,
-    val difficulty: String
-)
-class NumericQuestion(
-    val questionText: String,
-    val answer: Int,
-    val difficulty: String
-)
+enum class Difficulty {
+    EASY, MEDIUM, HARD
+}
 
-fun main() {
-    println("New chat message from a friend")}
-
+val question1 = Question<String>("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
+val question2 = Question<Boolean>("The sky is green. True or false", false, Difficulty.EASY)
+val question3 = Question<Int>("How many days are there between full moons?", 28, Difficulty.HARD)
